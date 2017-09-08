@@ -22,6 +22,7 @@ if [ -z "$MASTER_HOST" ]; then
 
 echo Creating replication user ...
 mysql -u root -e "\
+  --password=pw \
   GRANT \
     FILE, \
     SELECT, \
@@ -55,4 +56,3 @@ server-id=$SERVER_ID
 EOF
 
 exec docker-entrypoint.sh "$@"
-
